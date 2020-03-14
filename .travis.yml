@@ -15,7 +15,6 @@ deploy:
     on:
       repo: WoowaCrew/WoowaCrewCI
       branch: master
-      tags: true
 
 # CI 실행 완료시 메일 알람
 notifications:
