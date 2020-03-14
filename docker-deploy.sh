@@ -1,6 +1,6 @@
 docker login -u $DOCKER_USER -p $DOCKER_PASS
 
-docker build -t woowacrew/woowacrew:0.0.1 .
+docker build --tag woowacrew/woowacrew:0.0.1 .
 
 docker tag woowacrew/woowacrew:0.0.1 woowacrew/woowacrew:latest
 
