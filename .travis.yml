@@ -1,4 +1,24 @@
 language: java
 branches:
   only:
-    - master
+  - master
+
+env:
+  global:
+  - DOCKER_USER=hyojaekim
+  - secure: gHZI+5KedIiaI6PMZGQ3tuak45qvft9J/Qj1l+9rQrEUVWHyM4hPrwadMcnCeojH0NFqaij+w21JFI0HuQpFo5vYCe8EqkkujGhHK8oBgKumuF+OiESSEFGFq9mY06x7E42Hhnz9j0bENqm9u3Znh9H3z5vhkd/naqGU6zmpkIF99IcJAriFp1vAHadmjD9gUd/GaBEhTwdScvQ5JH9M3Bt7wklYzDlHwpES8632UuGZcLV45ajsazlN/ASFM+lgi6WBLvalZxayuz6sPvGWT9Y0JVdjmQTrRH59s1VlSdBB67XgG/YWEbN80BwSC4v6Ijo+d3aQqevBZyS3we5QvY/1W0+Ta9xSk3nBvgEFDD7v3TfO1NlFVrs9PbiIH6AsscT6DQAp8J0xVpFEmHBS29VbfQBaHwYUtXqulRFDqv6ox4yk7HBdQhoJs9LNfy6tkt+uU8N/VPwta/XGl69Q0+JA8drJ5z2ULeL8ThEXBqFTyGvQQE86zLzVsw1HeNkqPl2B6We2dZvKFRnivcrsr6GAWHu0WaY7ZdxOFW6diiisUugwbVav+alGh4+huQKdXwKli9I8hWhNZA2JT//Wvh/UHh9Sl4Va/j4Ua98yVOa5Pg2Dp7jGAmczsmuQ8KpheoMAxOXCH5r/cMGyY+Us9H9kLu75m+SmPUVvfmpZPBc=
+
+deploy:
+  provider: script
+  script: bash docker-deploy.sh
+  skip_cleanup: true
+  on:
+    repo: WoowaCrew/WoowaCrewCI
+    branch: master
+    tags: true
+
+# CI 실행 완료시 메일 알람
+notifications:
+  email:
+    recipients:
+      - hyojaedev@gmail.com
