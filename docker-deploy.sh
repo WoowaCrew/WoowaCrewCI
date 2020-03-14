@@ -1,6 +1,10 @@
-echo "정상적인 실행!"
+docker login -u $DOCKER_USER -p $DOCKER_PASS
 
-echo $DOCKER_USER
-echo $DOCKER_PASS
+docker build -t woowacrew/woowacrew:0.0.1 .
 
-echo "정상적인 ID, PASSWORD 출력"
+docker tag woowacrew/woowacrew:0.0.1 woowacrew/woowacrew:latest
+
+docker push woowacrew/woowacrew:0.0.1
+docker push woowacrew/woowacrew:latest
+
+echo "정상적인 실행"
